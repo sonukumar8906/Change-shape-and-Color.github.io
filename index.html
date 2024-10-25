@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>color and shape change</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background: aliceblue;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      flex-direction: column;
+      background-color: white;
+      width: 26rem;
+      height: 26rem;
+      box-shadow: -2px 2px 20px rgba(0, 0, 0, 0.3);
+    }
+    .child_container {
+      background-color: white;
+    }
+    .button {
+      margin-top: 5rem;
+      display: flex;
+      gap: 5rem;
+      background: white;
+    }
+
+    .btn {
+      font-size: 20px;
+      padding: 5px 13px;
+      background: #00cfff;
+      border: navajowhite;
+      border-radius: 10px;
+      color: white;
+      font-weight: 900;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+    .color {
+      background-color: red;
+      width: 15rem;
+      height: 15rem;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    img {
+      width: 6rem;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="child_container">
+        <div class="color">
+          <img src="image/set-up.svg" id="image" />
+        </div>
+      </div>
+      <div class="button">
+        <button id="btn1" class="btn">Color Button</button>
+        <button id="btn2" class="btn">Shape Button</button>
+      </div>
+    </div>
+    <script>
+      const randomeColor = () => {
+        const color = ["red", "orange", "green", "black", "purple"];
+        const randomNum = Math.floor(Math.random() * color.length);
+        const randomColor = color[randomNum];
+        const colors = document.querySelector(".color");
+        colors.style.backgroundColor = randomColor;
+      };
+      const ShapeChange = () => {
+        const images = [
+          "image/alarm-clock.svg",
+          "image/bundle.svg",
+          "image/facebook.png",
+          "image/insta.jpeg",
+          "image/location.jpg",
+          "image/mic.png",
+          "image/rocket.svg",
+          "image/set-up.svg",
+          "image/warning.png",
+          "image/WhatsApp.svg.webp",
+        ];
+        const randomNum = Math.floor(Math.random() * images.length);
+        // console.log(randomNum);
+        const image = document.getElementById("image");
+        image.src = images[randomNum];
+      };
+      const button = document.getElementById("btn1");
+      button.addEventListener("click", randomeColor);
+      const shapeBtn = document.getElementById("btn2");
+      shapeBtn.addEventListener("click", ShapeChange);
+    </script>
+  </body>
+</html>
